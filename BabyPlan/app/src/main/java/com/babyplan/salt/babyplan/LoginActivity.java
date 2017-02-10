@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -60,6 +61,12 @@ public class LoginActivity extends BaseActivity {
     public void login(View view) {
         login();
     }
+    @OnClick(R.id.btn_register)
+    public void register() {
+        Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
 
 
     /** 登陆操作
@@ -105,7 +112,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void done(Person person, BmobException ex) {
                 if(ex==null){
-                    toast("登录成功---用户名："+person.getName()+"，地址："+person.getAddress());
+                    toast("登录成功");
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("from", "login");
                     startActivity(intent);

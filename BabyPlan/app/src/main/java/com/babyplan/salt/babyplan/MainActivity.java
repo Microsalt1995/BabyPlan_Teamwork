@@ -5,15 +5,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MainActivity extends BaseActivity {
-
+    @InjectView(R.id.tv_title)
+    TextView tv_title;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Bmob.initialize(this, "e86ab9e61a776f8335a7f782e1c01f0c");
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
+        tv_title.setText("个人");
+
 
         findViewById(R.id.btn_dl).setOnClickListener(new View.OnClickListener() {
             @Override
