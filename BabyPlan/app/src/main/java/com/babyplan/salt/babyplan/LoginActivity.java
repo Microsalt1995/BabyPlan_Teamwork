@@ -61,9 +61,17 @@ public class LoginActivity extends BaseActivity {
     public void login(View view) {
         login();
     }
+
     @OnClick(R.id.btn_register)
+
     public void register() {
         Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_onekey)
+    public void oneKey() {
+        Intent intent = new Intent(LoginActivity.this,LoginOneKeyActivity.class);
         startActivity(intent);
     }
 
