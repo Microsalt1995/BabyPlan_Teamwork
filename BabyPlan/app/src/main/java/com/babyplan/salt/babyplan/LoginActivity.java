@@ -1,7 +1,10 @@
 package com.babyplan.salt.babyplan;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -41,6 +44,7 @@ public class LoginActivity extends BaseActivity {
     @InjectView(R.id.btn_register)
     Button btn_register;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -50,6 +54,8 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.inject(this);
         //初始化Bmob sdk
         Bmob.initialize(this, BMOB_APP_KEY);
+
+
     }
 
     @OnClick(R.id.iv_left)
@@ -83,9 +89,15 @@ public class LoginActivity extends BaseActivity {
     * @exception
     */
     private void login(){
-
+        SharedPreferences sp_userInfo=getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         String account = et_account.getText().toString();
         String password = et_password.getText().toString();
+        SharedPreferences.Editor editor =sp_userInfo.edit();
+        //保存用户名和密码
+        editor.putString("USER_NAME", account);
+        editor.putString("PASSWORD", password);
+        editor.commit();
+
         if (TextUtils.isEmpty(account)) {
             showToast("账号不能为空");
             return;
@@ -98,35 +110,24 @@ public class LoginActivity extends BaseActivity {
         progress.setMessage("正在登录中...");
         progress.setCanceledOnTouchOutside(false);
         progress.show();
-        //V3.3.9提供的新的登录方式，可传用户名/邮箱/手机号码
-//		BmobUser.loginByAccount(this, account, password, new LogInListener<User>() {
-//
-//			@Override
-//			public void done(User user, BmobException ex) {
-//				// TODO Auto-generated method stub
-//				progress.dismiss();
-//				if(ex==null){
-//					toast("登录成功---用户名："+user.getUsername()+"，年龄："+user.getAge());
-//					Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-//					intent.putExtra("from", "login");
-//					startActivity(intent);
-//					finish();
-//				}else{
-//					toast("登录失败：code="+ex.getErrorCode()+"，错误描述："+ex.getLocalizedMessage());
-//				}
-//			}
-//		});
+
         BmobUser.loginByAccount(account, password, new LogInListener<Person>() {
             @Override
             public void done(Person person, BmobException ex) {
+                SharedPreferences sp_state=getSharedPreferences("state", Context.MODE_PRIVATE);
+                SharedPreferences.Editor ed =sp_state.edit();
                 if(ex==null){
                     toast("登录成功");
+                    ed.putBoolean("loginstate", true);
+                    ed.commit();
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("from", "login");
                     startActivity(intent);
                     finish();
                 }else{
                     toast("登录失败：code="+ex.getErrorCode()+"，错误描述："+ex.getLocalizedMessage());
+                    ed.putBoolean("loginstate", false);
+                    ed.commit();
                 }
             }
         });

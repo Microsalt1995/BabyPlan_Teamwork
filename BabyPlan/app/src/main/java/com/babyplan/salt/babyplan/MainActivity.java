@@ -1,12 +1,17 @@
 package com.babyplan.salt.babyplan;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.babyplan.salt.babyplan.fragment.HomeFragment;
+import com.babyplan.salt.babyplan.fragment.LoginFragment;
 import com.babyplan.salt.babyplan.fragment.ProfileFragment;
 import com.babyplan.salt.babyplan.fragment.StoreFragment;
 import com.babyplan.salt.babyplan.fragment.TasksFragment;
@@ -26,21 +31,42 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.space)
     SpaceNavigationView spaceNavigationView;
 
+
+
+
     private Fragment currentFragment;
     private HomeFragment homeFragment;
     private TasksFragment tasksFragment;
     private StoreFragment storeFragment;
     private ProfileFragment profileFragment;
+    private LoginFragment loginFragment;
 
     private final int INDEX_HOME=0;
     private final int INDEX_TASKS=1;
     private final int INDEX_STORE=2;
     private final int INDEX_ME=3;
+    private boolean loginState=false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+
+        SharedPreferences sp_state=getSharedPreferences("state", Context.MODE_PRIVATE);
+
+
+  //     SharedPreferences.Editor editor =sp.edit();
+        //保存用户名和密码
+  //      editor.putBoolean("loginstate", true);
+        //editor.putString("PASSWORD", password);
+    //    editor.clear();
+     //  editor.commit();
+
+      // String name =sp.getString("USER_NAME", "");
+
+        loginState =sp_state.getBoolean("loginstate",false);
+
         ButterKnife.inject(this);
 
         initToolBar();
@@ -82,7 +108,13 @@ public class MainActivity extends BaseActivity {
                         replaceFragment(storeFragment);
                         break;
                     case INDEX_ME:
-                        replaceFragment(profileFragment);
+                        if(loginState)
+                        {
+                            replaceFragment(profileFragment);
+
+                        }
+                        else
+                            replaceFragment(loginFragment);
                         break;
                 }
             }
@@ -99,7 +131,10 @@ public class MainActivity extends BaseActivity {
         homeFragment=new HomeFragment();
         tasksFragment=new TasksFragment();
         storeFragment=new StoreFragment();
-        profileFragment=new ProfileFragment();
+        if(loginState)
+           profileFragment=new ProfileFragment();
+        else
+          loginFragment =new  LoginFragment();
 
         currentFragment=homeFragment;
         transaction.add(R.id.frame_layout, homeFragment);

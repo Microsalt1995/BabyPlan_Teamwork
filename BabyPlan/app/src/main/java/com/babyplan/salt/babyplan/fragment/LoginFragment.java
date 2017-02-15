@@ -1,9 +1,7 @@
 package com.babyplan.salt.babyplan.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,37 +9,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.babyplan.salt.babyplan.DiaryActivity;
+import com.babyplan.salt.babyplan.LoginActivity;
 import com.babyplan.salt.babyplan.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ProfileFragment extends Fragment {
+/**
+ * Created by Salt on 2017/2/15.
+ */
 
-    @InjectView(R.id.btn_diary)
-    Button btnDiary;
-    @InjectView(R.id.tv_account)
-    TextView tv_Account;
+public class LoginFragment extends Fragment {
 
-    public ProfileFragment() {
+    @InjectView(R.id.btn_denglu)
+    Button btnDenglu;
+    public LoginFragment() {
         // Required empty public constructor
-
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.login1, container, false);
         ButterKnife.inject(this,view);
-        tv_Account.setText("111");
-
         return view;
     }
 
@@ -49,14 +40,13 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnDiary.setOnClickListener(new View.OnClickListener() {
+        btnDenglu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(), DiaryActivity.class);
+                Intent intent=new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
 
     }
-
 }
