@@ -1,0 +1,155 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.babyplan.salt.babyplan.fragment.ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:src="@drawable/background2"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:contentPaddingLeft="20dp"
+            app:contentPaddingRight="20dp"
+            app:contentPaddingBottom="10dp"
+            app:contentPaddingTop="10dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="6dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_edit_grey_500_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"/>
+                </RelativeLayout>
+                <TextView
+                    android:text="陈咸味"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="幼儿园大5班"
+                    android:textColor="#9E9E9E"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+                        <TextView
+                            android:text="45"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/holo_green_dark"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="种子数"
+                            android:textColor="#BDBDBD"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:background="@android:color/darker_gray"
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+                        <TextView
+                            android:text="45"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="花朵数"
+                            android:textColor="#BDBDBD"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:background="@android:color/darker_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"/>
+                <TextView
+                    android:text="13800138000"
+                    android:drawableLeft="@drawable/ic_call_24dp"
+                    android:drawablePadding="20dp"
+                    android:textColor="#9E9E9E"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+                <View
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+                <TextView
+                    android:text="浙江省温州市温州世界大厦顶层"
+                    android:drawableLeft="@drawable/ic_location_city_24dp"
+                    android:drawablePadding="20dp"
+                    android:textColor="#9E9E9E"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+                <Button
+                    android:text="充值种子"
+                    android:background="@drawable/btn_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"/>
+                <Button
+                    android:id="@+id/btn_diary"
+                    android:text="查看成长日记"
+                    android:background="@drawable/btn_background"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+
+</FrameLayout>

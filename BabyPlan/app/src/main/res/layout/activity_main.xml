@@ -1,31 +1,38 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.babyplan.salt.babyplan.MainActivity" >
-
-    <include layout="@layout/include_header" />
-
-    <TextView
-        android:id="@+id/tv_user"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.babyplan.salt.babyplan.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        />
-
-    <Button
-        android:id="@+id/btn_dl"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" >
+        <TextView
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
+    <FrameLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_btn_press_selector_1"
-        android:text="登录"
-        android:textColor="#ffffff"
-        android:textSize="16sp" >
-    </Button>
+        android:layout_height="match_parent">
+    </FrameLayout>
 
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:inactive_item_color="@color/white"
+        app:active_item_color="#495A80"
+        app:space_background_color="@color/colorPrimaryDark"
+        app:centre_button_color="@color/colorAccent"
+        app:centre_button_icon="@drawable/ic_near_me_white_18dp"/>
 
-</LinearLayout>
+</RelativeLayout>

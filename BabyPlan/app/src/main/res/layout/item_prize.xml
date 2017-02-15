@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:contentPaddingBottom="6dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/prize_sample"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="160dp" />
+            <TextView
+                android:text="AK47"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                android:textColor="#9E9E9E"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:text="AK-47属于突击步枪，世界十大名枪之一。实在是杀人灭口、居家旅行之必备良药。"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="50"
+                    android:layout_weight="0.5"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="6dp"
+                    android:drawableLeft="@drawable/ic_flower_orange" />
+                <Button
+                    android:text="设为奖品"
+                    android:layout_weight="0.5"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/btn_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

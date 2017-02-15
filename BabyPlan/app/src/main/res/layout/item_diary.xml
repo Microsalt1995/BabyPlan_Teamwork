@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_weight="0.8"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray"
+            android:layout_width="1dp"
+            android:layout_height="32dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:text="11:20"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_gravity="center"
+            android:text="16 Jan"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_gravity="center"
+            android:background="@android:color/darker_gray"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_weight="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="6dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/prize_sample"
+                android:layout_width="match_parent"
+                android:layout_height="120dp" />
+            <TextView
+                android:padding="10dp"
+                android:text="AK-47属于突击步枪，世界十大名枪之一。实在是杀人灭口、居家旅行之必备良药。"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

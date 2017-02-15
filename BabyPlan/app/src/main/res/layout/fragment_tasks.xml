@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingBottom="50dp"
+    tools:context="com.babyplan.salt.babyplan.fragment.TasksFragment">
+
+    <com.loopeer.cardstack.CardStackView
+        android:id="@+id/CAV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.loopeer.cardstack.CardStackView>
+
+</FrameLayout>
