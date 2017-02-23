@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.babyplan.salt.babyplan.DiaryActivity;
 import com.babyplan.salt.babyplan.R;
+import com.babyplan.salt.babyplan.StoreActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -20,6 +21,8 @@ public class ProfileFragment extends Fragment {
 
     @InjectView(R.id.btn_diary)
     Button btnDiary;
+    @InjectView(R.id.btn_prize)
+    Button btnPrize;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -38,6 +41,14 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        btnPrize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), StoreActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnDiary.setOnClickListener(new View.OnClickListener() {
             @Override

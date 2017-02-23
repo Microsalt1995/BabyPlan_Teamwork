@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
         <View
             android:layout_gravity="center"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/white"
             android:layout_width="1dp"
             android:layout_height="32dp"/>
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content" />
         <View
             android:layout_gravity="center"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/white"
             android:layout_width="1dp"
             android:layout_height="fill_parent"/>
     </LinearLayout>
@@ -48,6 +48,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
         app:cardElevation="4dp"
         app:cardCornerRadius="6dp">
         <LinearLayout
@@ -61,6 +62,7 @@
                 android:layout_height="120dp" />
             <TextView
                 android:padding="10dp"
+                android:textColor="#9E9E9E"
                 android:text="AK-47属于突击步枪，世界十大名枪之一。实在是杀人灭口、居家旅行之必备良药。"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

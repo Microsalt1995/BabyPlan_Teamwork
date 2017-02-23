@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dream_store">梦想商城</string>
+    <string name="my_diary">我的成长日记</string>
+    <string name="send">发送</string>
+
+    <string-array name="send_photo">
+        <item>拍摄</item>
+        <item>从相片中选择</item>
+    </string-array>
 </resources>

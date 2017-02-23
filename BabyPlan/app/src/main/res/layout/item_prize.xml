@@ -63,6 +63,7 @@
                     android:text="设为奖品"
                     android:layout_weight="0.5"
                     android:textSize="14sp"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:layout_marginTop="4dp"

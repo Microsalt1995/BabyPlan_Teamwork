@@ -135,7 +135,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp" />
                 <Button
-                    android:text="充值种子"
+                    android:id="@+id/btn_prize"
+                    android:text="兑换奖品"
+                    android:textColor="@color/white"
                     android:background="@drawable/btn_background"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -143,6 +145,7 @@
                 <Button
                     android:id="@+id/btn_diary"
                     android:text="查看成长日记"
+                    android:textColor="@color/white"
                     android:background="@drawable/btn_background"
                     android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"

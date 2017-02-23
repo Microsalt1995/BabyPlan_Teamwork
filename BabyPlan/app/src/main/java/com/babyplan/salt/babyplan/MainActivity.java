@@ -1,14 +1,20 @@
 package com.babyplan.salt.babyplan;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Camera;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
+import com.babyplan.salt.babyplan.fragment.ExploreFragment;
 import com.babyplan.salt.babyplan.fragment.HomeFragment;
 import com.babyplan.salt.babyplan.fragment.ProfileFragment;
-import com.babyplan.salt.babyplan.fragment.StoreFragment;
 import com.babyplan.salt.babyplan.fragment.TasksFragment;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
@@ -29,13 +35,15 @@ public class MainActivity extends BaseActivity {
     private Fragment currentFragment;
     private HomeFragment homeFragment;
     private TasksFragment tasksFragment;
-    private StoreFragment storeFragment;
+    private ExploreFragment exploreFragment;
     private ProfileFragment profileFragment;
 
     private final int INDEX_HOME=0;
     private final int INDEX_TASKS=1;
     private final int INDEX_STORE=2;
     private final int INDEX_ME=3;
+    private final int REQUEST_CODE_IMAGE =0x451;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +66,7 @@ public class MainActivity extends BaseActivity {
 
         spaceNavigationView.addSpaceItem(new SpaceItem("HOME", R.drawable.ic_home_white_18dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("TASKS", R.drawable.ic_featured_play_list_white_18dp));
-        spaceNavigationView.addSpaceItem(new SpaceItem("STORE", R.drawable.ic_store_white_18dp));
+        spaceNavigationView.addSpaceItem(new SpaceItem("EXPLORE", R.drawable.ic_explore_white_18dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("ME", R.drawable.ic_person_white_18dp));
         spaceNavigationView.setCentreButtonIconColorFilterEnabled(false);
         spaceNavigationView.showIconOnly();
@@ -66,7 +74,7 @@ public class MainActivity extends BaseActivity {
         spaceNavigationView.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
             public void onCentreButtonClick() {
-
+                showSendDialog();
             }
 
             @Override
@@ -79,7 +87,7 @@ public class MainActivity extends BaseActivity {
                         replaceFragment(tasksFragment);
                         break;
                     case INDEX_STORE:
-                        replaceFragment(storeFragment);
+                        replaceFragment(exploreFragment);
                         break;
                     case INDEX_ME:
                         replaceFragment(profileFragment);
@@ -98,7 +106,7 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         homeFragment=new HomeFragment();
         tasksFragment=new TasksFragment();
-        storeFragment=new StoreFragment();
+        exploreFragment=new ExploreFragment();
         profileFragment=new ProfileFragment();
 
         currentFragment=homeFragment;
@@ -112,6 +120,20 @@ public class MainActivity extends BaseActivity {
         spaceNavigationView.onSaveInstanceState(outState);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case REQUEST_CODE_IMAGE:
+                Uri uri = data.getData();
+                Intent intent=new Intent(this,DiarySendActivity.class);
+                intent.setData(uri);
+                startActivity(intent);
+                break;
+
+        }
+    }
+
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.hide(currentFragment);
@@ -123,6 +145,29 @@ public class MainActivity extends BaseActivity {
         }
         currentFragment=fragment;
         transaction.commit();
+    }
+
+
+
+    private void showSendDialog(){
+        new AlertDialog.Builder(this)
+                .setItems(R.array.send_photo, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                Intent getImageByCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                startActivityForResult(getImageByCamera, REQUEST_CODE_IMAGE);
+                                break;
+                            case 1:
+                                Intent intent = new Intent(Intent.ACTION_PICK);
+                                intent.setType("image/*");//相片类型
+                                startActivityForResult(intent, REQUEST_CODE_IMAGE);
+                                break;
+                        }
+                    }
+                })
+                .show();
     }
 
 }

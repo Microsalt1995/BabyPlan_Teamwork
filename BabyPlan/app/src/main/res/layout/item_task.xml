@@ -98,6 +98,7 @@
                         android:layout_height="match_parent" />
                     <Button
                         android:text="完成任务"
+                        android:textColor="@color/white"
                         android:layout_weight="0.4"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
