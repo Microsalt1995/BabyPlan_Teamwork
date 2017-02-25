@@ -14,7 +14,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="485dp">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,10 +28,12 @@
             app:contentPaddingTop="10dp"
             app:cardElevation="4dp"
             app:cardCornerRadius="6dp">
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -45,77 +47,30 @@
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"/>
                 </RelativeLayout>
+
                 <TextView
-                    android:text="陈咸味"
+                    android:text="未登录"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <TextView
-                    android:text="幼儿园大5班"
-                    android:textColor="#9E9E9E"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.5">
-                        <TextView
-                            android:text="45"
-                            android:textSize="20sp"
-                            android:textColor="@android:color/holo_green_dark"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="种子数"
-                            android:textColor="#BDBDBD"
-                            android:textSize="12sp"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <View
-                        android:background="@android:color/darker_gray"
-                        android:layout_width="1px"
-                        android:layout_height="match_parent"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.5">
-                        <TextView
-                            android:text="45"
-                            android:textSize="20sp"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="花朵数"
-                            android:textColor="#BDBDBD"
-                            android:textSize="12sp"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
+
+
                 </LinearLayout>
                 <View
                     android:background="@android:color/darker_gray"
                     android:layout_width="match_parent"
                     android:layout_height="1px"/>
                 <TextView
-                    android:id="@+id/tv_account"
-                    android:text="13800138000"
+                    android:text="用户名、手机号"
                     android:drawableLeft="@drawable/ic_call_24dp"
                     android:drawablePadding="20dp"
                     android:textColor="#9E9E9E"
@@ -129,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1px" />
                 <TextView
-                    android:text="浙江省温州市温州世界大厦顶层"
+                    android:text="密码"
                     android:drawableLeft="@drawable/ic_location_city_24dp"
                     android:drawablePadding="20dp"
                     android:textColor="#9E9E9E"
@@ -137,22 +92,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp" />
                 <Button
-                    android:id="@+id/btn_prize"
-                    android:text="兑换奖品"
-                    android:textColor="@color/white"
+                    android:text="登录"
+                    android:id="@+id/btn_denglu"
                     android:background="@drawable/btn_background"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"/>
                 <Button
-                    android:id="@+id/btn_diary"
-                    android:text="查看成长日记"
-                    android:textColor="@color/white"
+                    android:text="注册"
                     android:background="@drawable/btn_background"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="20dp"/>
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </ScrollView>

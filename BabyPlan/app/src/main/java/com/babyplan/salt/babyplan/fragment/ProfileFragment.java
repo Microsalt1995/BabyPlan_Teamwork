@@ -1,7 +1,9 @@
 package com.babyplan.salt.babyplan.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.babyplan.salt.babyplan.DiaryActivity;
 import com.babyplan.salt.babyplan.R;
@@ -21,11 +24,17 @@ public class ProfileFragment extends Fragment {
 
     @InjectView(R.id.btn_diary)
     Button btnDiary;
+<<<<<<< HEAD
     @InjectView(R.id.btn_prize)
     Button btnPrize;
+=======
+    @InjectView(R.id.tv_account)
+    TextView tv_Account;
+>>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
 
     public ProfileFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -33,8 +42,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ButterKnife.inject(this,view);
+        tv_Account.setText("111");
+
         return view;
     }
 

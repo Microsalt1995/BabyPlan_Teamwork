@@ -1,9 +1,15 @@
 package com.babyplan.salt.babyplan;
 
+<<<<<<< HEAD
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Camera;
 import android.net.Uri;
+=======
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+>>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -11,9 +17,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.babyplan.salt.babyplan.fragment.ExploreFragment;
 import com.babyplan.salt.babyplan.fragment.HomeFragment;
+import com.babyplan.salt.babyplan.fragment.LoginFragment;
 import com.babyplan.salt.babyplan.fragment.ProfileFragment;
 import com.babyplan.salt.babyplan.fragment.TasksFragment;
 import com.luseen.spacenavigation.SpaceItem;
@@ -32,23 +40,47 @@ public class MainActivity extends BaseActivity {
     @InjectView(R.id.space)
     SpaceNavigationView spaceNavigationView;
 
+
+
+
     private Fragment currentFragment;
     private HomeFragment homeFragment;
     private TasksFragment tasksFragment;
     private ExploreFragment exploreFragment;
     private ProfileFragment profileFragment;
+    private LoginFragment loginFragment;
 
     private final int INDEX_HOME=0;
     private final int INDEX_TASKS=1;
     private final int INDEX_STORE=2;
     private final int INDEX_ME=3;
+<<<<<<< HEAD
     private final int REQUEST_CODE_IMAGE =0x451;
 
+=======
+    private boolean loginState=false;
+>>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+
+        SharedPreferences sp_state=getSharedPreferences("state", Context.MODE_PRIVATE);
+
+
+  //     SharedPreferences.Editor editor =sp.edit();
+        //保存用户名和密码
+  //      editor.putBoolean("loginstate", true);
+        //editor.putString("PASSWORD", password);
+    //    editor.clear();
+     //  editor.commit();
+
+      // String name =sp.getString("USER_NAME", "");
+
+        loginState =sp_state.getBoolean("loginstate",false);
+
         ButterKnife.inject(this);
 
         initToolBar();
@@ -90,7 +122,13 @@ public class MainActivity extends BaseActivity {
                         replaceFragment(exploreFragment);
                         break;
                     case INDEX_ME:
-                        replaceFragment(profileFragment);
+                        if(loginState)
+                        {
+                            replaceFragment(profileFragment);
+
+                        }
+                        else
+                            replaceFragment(loginFragment);
                         break;
                 }
             }
@@ -106,8 +144,16 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         homeFragment=new HomeFragment();
         tasksFragment=new TasksFragment();
+<<<<<<< HEAD
         exploreFragment=new ExploreFragment();
         profileFragment=new ProfileFragment();
+=======
+        storeFragment=new StoreFragment();
+        if(loginState)
+           profileFragment=new ProfileFragment();
+        else
+          loginFragment =new  LoginFragment();
+>>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
 
         currentFragment=homeFragment;
         transaction.add(R.id.frame_layout, homeFragment);
