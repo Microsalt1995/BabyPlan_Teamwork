@@ -24,13 +24,13 @@ public class ProfileFragment extends Fragment {
 
     @InjectView(R.id.btn_diary)
     Button btnDiary;
-<<<<<<< HEAD
+
     @InjectView(R.id.btn_prize)
     Button btnPrize;
-=======
+
     @InjectView(R.id.tv_account)
     TextView tv_Account;
->>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
+
 
     public ProfileFragment() {
         // Required empty public constructor

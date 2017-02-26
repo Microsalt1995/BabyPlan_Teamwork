@@ -1,15 +1,13 @@
 package com.babyplan.salt.babyplan;
 
-<<<<<<< HEAD
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Camera;
 import android.net.Uri;
-=======
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
->>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
+
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -54,12 +52,12 @@ public class MainActivity extends BaseActivity {
     private final int INDEX_TASKS=1;
     private final int INDEX_STORE=2;
     private final int INDEX_ME=3;
-<<<<<<< HEAD
+
     private final int REQUEST_CODE_IMAGE =0x451;
 
-=======
+
     private boolean loginState=false;
->>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,16 +142,15 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         homeFragment=new HomeFragment();
         tasksFragment=new TasksFragment();
-<<<<<<< HEAD
+
         exploreFragment=new ExploreFragment();
         profileFragment=new ProfileFragment();
-=======
-        storeFragment=new StoreFragment();
+        exploreFragment=new ExploreFragment();
         if(loginState)
            profileFragment=new ProfileFragment();
         else
           loginFragment =new  LoginFragment();
->>>>>>> 892ec7aa3638e33de8647187ff64033fffee6294
+
 
         currentFragment=homeFragment;
         transaction.add(R.id.frame_layout, homeFragment);
