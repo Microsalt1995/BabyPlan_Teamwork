@@ -47,7 +47,7 @@ public class TasksFragment extends Fragment implements CardStackView.ItemExpendL
         cardStackView.setAdapter(taskStackAdapter);
         cardStackView.setItemExpendListener(this);
         strings=new ArrayList<>();
-        for (int i=0;i<12;i++)
+        for (int i=0;i<3;i++)
             strings.add(i+"");
         taskStackAdapter.updateData(strings);
 

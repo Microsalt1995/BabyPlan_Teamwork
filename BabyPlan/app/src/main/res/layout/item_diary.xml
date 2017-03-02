@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_weight="0.8"
+        android:layout_weight="0.9"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -57,13 +57,13 @@
             android:layout_height="match_parent">
             <ImageView
                 android:scaleType="centerCrop"
-                android:src="@drawable/prize_sample"
+                android:src="@drawable/sample_diary2"
                 android:layout_width="match_parent"
                 android:layout_height="120dp" />
             <TextView
                 android:padding="10dp"
                 android:textColor="#9E9E9E"
-                android:text="AK-47属于突击步枪，世界十大名枪之一。实在是杀人灭口、居家旅行之必备良药。"
+                android:text="孩子今天学会了滑轮，好棒！！"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

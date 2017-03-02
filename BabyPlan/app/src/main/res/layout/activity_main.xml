@@ -33,6 +33,6 @@
         app:active_item_color="#495A80"
         app:space_background_color="@color/colorPrimaryDark"
         app:centre_button_color="@color/colorAccent"
-        app:centre_button_icon="@drawable/ic_near_me_white_18dp"/>
+        app:centre_button_icon="@drawable/ic_add_white_24dp"/>
 
 </RelativeLayout>

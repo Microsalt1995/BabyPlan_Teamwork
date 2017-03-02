@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.babyplan.salt.babyplan.DiarySendActivity">
 
-    <android.support.design.widget.FloatingActionButton
-        app:fabSize="mini"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="48dp"
-        android:src="@drawable/ic_add_white_24dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,7 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="20dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="6dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:padding="20dp"
@@ -34,12 +26,13 @@
 
                 <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/et_diary"
-                    android:layout_marginBottom="64dp"
                     android:hint="日记内容"
                     android:textSize="18sp"
+                    android:gravity="start|top"
                     android:background="@null"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:minHeight="96dp"/>
                 <View
                     android:background="@android:color/darker_gray"
                     android:layout_marginBottom="20dp"
@@ -58,5 +51,15 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        app:fabSize="mini"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="48dp"
+        android:src="@drawable/ic_add_white_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>

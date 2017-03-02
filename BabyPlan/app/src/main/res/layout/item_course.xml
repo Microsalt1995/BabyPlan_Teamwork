@@ -8,9 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="0dp"
-        app:contentPadding="20dp">
+        app:cardCornerRadius="0dp">
         <ImageView
+            android:src="@drawable/sample_course"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

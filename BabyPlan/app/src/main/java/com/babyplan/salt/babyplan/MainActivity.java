@@ -2,9 +2,7 @@ package com.babyplan.salt.babyplan;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Camera;
 import android.net.Uri;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -15,7 +13,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.babyplan.salt.babyplan.fragment.ExploreFragment;
 import com.babyplan.salt.babyplan.fragment.HomeFragment;
@@ -50,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
     private final int INDEX_HOME=0;
     private final int INDEX_TASKS=1;
-    private final int INDEX_STORE=2;
+    private final int INDEX_EXPLORE =2;
     private final int INDEX_ME=3;
 
     private final int REQUEST_CODE_IMAGE =0x451;
@@ -77,7 +74,8 @@ public class MainActivity extends BaseActivity {
 
       // String name =sp.getString("USER_NAME", "");
 
-        loginState =sp_state.getBoolean("loginstate",false);
+        //loginState =sp_state.getBoolean("loginstate",false);
+        loginState=true;
 
         ButterKnife.inject(this);
 
@@ -116,7 +114,7 @@ public class MainActivity extends BaseActivity {
                     case INDEX_TASKS:
                         replaceFragment(tasksFragment);
                         break;
-                    case INDEX_STORE:
+                    case INDEX_EXPLORE:
                         replaceFragment(exploreFragment);
                         break;
                     case INDEX_ME:
@@ -140,12 +138,12 @@ public class MainActivity extends BaseActivity {
 
     private void initFragments(){
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+
         homeFragment=new HomeFragment();
         tasksFragment=new TasksFragment();
-
         exploreFragment=new ExploreFragment();
         profileFragment=new ProfileFragment();
-        exploreFragment=new ExploreFragment();
+
         if(loginState)
            profileFragment=new ProfileFragment();
         else

@@ -6,6 +6,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.babyplan.salt.babyplan.R;
 import com.loopeer.cardstack.CardStackView;
@@ -38,6 +39,21 @@ public class TaskStackAdapter extends StackAdapter<String>{
     public void bindView(String data, int position, CardStackView.ViewHolder holder) {
         TaskItemViewHolder taskItemViewHolder=(TaskItemViewHolder) holder;
         taskItemViewHolder.onBind(position);
+
+        switch (position){
+            case 0:
+                taskItemViewHolder.title.setText("学画画");
+                break;
+            case 1:
+                taskItemViewHolder.title.setText("学吉他");
+                taskItemViewHolder.content.setText("  一周至少6天时间，每天2小时，按照书本上的教学曲目进行学习。");
+                taskItemViewHolder.publisher.setText("xxx老师");
+                break;
+            case 2:
+                taskItemViewHolder.title.setText("踢足球");
+                break;
+        }
+
     }
 
     @Override
@@ -53,6 +69,16 @@ public class TaskStackAdapter extends StackAdapter<String>{
         View expandView;
         @InjectView(R.id.IB_close)
         ImageButton imageButton;
+        @InjectView(R.id.tv_title)
+        TextView title;
+        @InjectView(R.id.tv_content)
+        TextView content;
+        @InjectView(R.id.tv_date)
+        TextView date;
+        @InjectView(R.id.tv_publisher)
+        TextView publisher;
+        @InjectView(R.id.tv_flower_count)
+        TextView flowerCount;
 
         View itemView;
         public TaskItemViewHolder(View view) {

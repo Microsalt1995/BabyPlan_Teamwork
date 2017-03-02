@@ -1,86 +1,96 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
     tools:context="com.babyplan.salt.babyplan.fragment.HomeFragment">
 
-    <ImageView
+    <!--<ImageView
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.CardView
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            custom:cardElevation="4dp"
-            custom:cardCornerRadius="6dp">
-            <TextView
-                android:id="@+id/tv_title"
-                android:text="还差 6 朵，加油！"
-                android:background="@color/colorAccent"
-                android:textColor="@color/white"
-                android:gravity="center"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="50dp"
+                app:cardBackgroundColor="@color/colorAccent">
+                <TextView
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:text="      人生是一场无休、无歇、无情的战斗，凡是要做个够得上称为人的人，都得时时向无形的敌人作战。       ——罗曼·罗兰"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            custom:cardBackgroundColor="#FFE957"
-            custom:cardElevation="4dp"
-            custom:cardCornerRadius="6dp">
-            <com.github.lzyzsd.circleprogress.DonutProgress
-                android:id="@+id/donut_progress"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:layout_gravity="center"
-                custom:donut_progress="30"
-                custom:donut_text_size="26sp"
-                custom:donut_text_color="#F44336"
-                custom:donut_finished_color="#F29F3F"
-                custom:donut_unfinished_color="#F44336"
-                custom:donut_unfinished_stroke_width="2dp"
-                custom:donut_finished_stroke_width="6dp"/>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            custom:cardElevation="4dp"
-            custom:cardCornerRadius="6dp">
-            <ImageView
-                android:id="@+id/iv_flower"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_feedback"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/sample"
-                android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="0dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="教师反馈"
+                        android:textSize="16sp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-    </LinearLayout>
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_lasted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="80dp"
+                app:cardCornerRadius="0dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="最近成长动态"
+                        android:textSize="16sp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_lasted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-</FrameLayout>
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
